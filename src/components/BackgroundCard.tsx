@@ -45,14 +45,12 @@ export const BackgroundCard: React.FC<BackgroundCardProps> = ({
         className="w-full h-full object-cover"
       />
 
-      {/* Default badge */}
       {background.isDefault && !isGenerating && (
         <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-sm px-1 py-1.5 rounded-[5px] border border-[#E0E0E0] text-[10px] font-semibold flex items-center gap-1.5">
           DEFAULT
         </div>
       )}
 
-      {/* Generating overlay */}
       {isGenerating && (
         <CircularProgress progress={progress} timeRemaining={timeRemaining} />
       )}

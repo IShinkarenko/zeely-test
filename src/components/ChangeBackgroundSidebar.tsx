@@ -91,15 +91,19 @@ export const ChangeBackgroundSidebar: React.FC<
           Generate BG for 1 credit
         </Button>
 
-        <div className="space-y-4">
+        <div className="space-y-4 pb-24">
           <h3 className="text-[14px] font-medium">Your backgrounds</h3>
           <div className="grid grid-cols-3 gap-4">
             {backgrounds.map((bg, index) => (
               <BackgroundCard
                 key={bg.id}
-                background={{ ...bg, imageUrl: selectedAvatar.image }}
+                background={{
+                  ...bg,
+                  imageUrl: selectedAvatar.image,
+                  isDefault: index === 0,
+                }}
                 isSelected={selectedBackgroundId === bg.id}
-                isGenerating={isGenerating && index === 0}
+                isGenerating={isGenerating && selectedBackgroundId === bg.id}
                 progress={progress}
                 timeRemaining={timeRemaining}
                 onClick={selectBackground}
